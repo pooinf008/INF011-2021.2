@@ -1,0 +1,33 @@
+package br.ifba.inf011.builder;
+
+//PRODUCT em um Builder
+public abstract class AbstractControlador implements ControladorIF{
+
+	private SensorIF sensor;
+	private AtuadorIF atuador;	
+	
+	public AbstractControlador(SensorIF sensor, AtuadorIF atuador) {
+		this.sensor = sensor;
+		this.atuador = atuador;
+	}
+	
+	public SensorIF getSensor() {
+		return this.sensor;
+	}
+	public void setSensor(SensorIF sensor) {
+		this.sensor = sensor;
+	}
+	public AtuadorIF getAtuador() {
+		return this.atuador;
+	}
+	public void setAtuador(AtuadorIF atuador) {
+		this.atuador = atuador;
+	}
+	
+	@Override
+	public double processar(double temperatura) {
+		this.getSensor().medir(temperatura);
+		return this.getAtuador().atuar(temperatura);
+	}	
+	
+}
