@@ -3,7 +3,7 @@ package br.ifba.inf011.comp.state;
 import java.util.LinkedList;
 import java.util.List;
 
-//CLIENT em COR
+//CONTEXT em State
 public class Controlador {
 	
 	public class Snapshot {

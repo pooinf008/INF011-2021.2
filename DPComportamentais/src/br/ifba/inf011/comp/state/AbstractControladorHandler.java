@@ -1,7 +1,6 @@
 package br.ifba.inf011.comp.state;
 
 
-//HANDLER em COR
 public abstract class AbstractControladorHandler implements ControladorHandler{
 	
 	protected ControladorHandler proximo;

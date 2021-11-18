@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-//CARETAKER em um MEMENTO 
+//CARETAKER em um Memento 
 public class Aplicacao {
 	
 	
-/*	public void run() throws InterruptedException {
+	public void run01() throws InterruptedException {
 		
 		Ambiente ambiente = new Ambiente();
 		Controlador controlador = new Controlador(25, 0.75);
@@ -33,9 +33,9 @@ public class Aplicacao {
 			
 		}		
 	}
-*/	
 	
-	public void run() throws InterruptedException {
+	
+	public void run02() throws InterruptedException {
 		
 		List<Controlador.Snapshot> snapshots = new ArrayList<Controlador.Snapshot>();
 		
@@ -71,7 +71,7 @@ public class Aplicacao {
 	
 	
 	public static void main(String[] args) throws InterruptedException {
-		(new Aplicacao()).run();
+		(new Aplicacao()).run01();
 	}
 
 }

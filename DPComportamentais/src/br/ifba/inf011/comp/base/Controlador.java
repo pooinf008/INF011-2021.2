@@ -3,6 +3,7 @@ package br.ifba.inf011.comp.base;
 import java.util.LinkedList;
 import java.util.List;
 
+
 public class Controlador {
 	
 	private static int HISTORICO_VALUES = 5;
@@ -19,32 +20,45 @@ public class Controlador {
 
 	public double executar(TipoControle tipo, double valor){
 		this.historico.add(valor);
-		if(tipo == TipoControle.PROPORCIONAL) {
-			double delta = valor - this.setpoint; 
-			return - ganho * delta; 
-		}
-		if(tipo == TipoControle.INTEGRAL) {
-			int qtdeDisponivel = (this.historico.size() > Controlador.HISTORICO_VALUES) ?
-								  Controlador.HISTORICO_VALUES : this.historico.size();
-			double valorHistorico = 0;
-			for(int i = this.historico.size() - 1, j = 0; j < qtdeDisponivel;
-				i--, j++)
-				valorHistorico +=  (this.historico.get(i) - this.setpoint);
-			valorHistorico = valorHistorico / qtdeDisponivel;
-			return ganho * (-valorHistorico);
-			
-		}else if (tipo == TipoControle.PROPORCIONAL_INTEGRAL) {
-			double delta = valor - this.setpoint; 
-			int qtdeDisponivel = (this.historico.size() > Controlador.HISTORICO_VALUES) ?
-					  Controlador.HISTORICO_VALUES : this.historico.size();
-			double valorHistorico = 0;
-			for(int i = this.historico.size() - 1, j = 0; j < qtdeDisponivel;
+		if(tipo == TipoControle.PROPORCIONAL)
+			return this.executarProporcional(valor);
+		else if(tipo == TipoControle.INTEGRAL)
+			return this.executarIntegral();
+		else if(tipo == TipoControle.PROPORCIONAL_INTEGRAL)
+			return this.executarPI(valor);
+		return 0;
+	}
+	
+	private double executarProporcional(double valor){
+		double delta = valor - this.setpoint;
+		double valorExecucao = - ganho * delta;
+		System.out.print("Aplicando Proporcional :" + valorExecucao + " ");
+		return valorExecucao; 
+	}	
+	
+	private double executarIntegral() {
+		int qtdeDisponivel = (this.historico.size() > Controlador.HISTORICO_VALUES) ?
+				  Controlador.HISTORICO_VALUES : this.historico.size();
+		double valorHistorico = 0;
+		for(int i = this.historico.size() - 1, j = 0; j < qtdeDisponivel;
 				i--, j++)
 			valorHistorico +=  (this.historico.get(i) - this.setpoint);
-			valorHistorico = valorHistorico / qtdeDisponivel;
-			return (-ganho * delta) + (ganho * (-valorHistorico));
-		}
-		return 0;
+		valorHistorico = valorHistorico / qtdeDisponivel;
+		double valorExecucao = -ganho * (valorHistorico);
+		System.out.print("Aplicando Integral :" + valorExecucao + " ");
+		return valorExecucao; 
+	}
+	
+	private double executarPI(double valor) {
+		double delta = valor - this.setpoint; 
+		int qtdeDisponivel = (this.historico.size() > Controlador.HISTORICO_VALUES) ?
+				  Controlador.HISTORICO_VALUES : this.historico.size();
+		double valorHistorico = 0;
+		for(int i = this.historico.size() - 1, j = 0; j < qtdeDisponivel;
+			i--, j++)
+		valorHistorico +=  (this.historico.get(i) - this.setpoint);
+		valorHistorico = valorHistorico / qtdeDisponivel;
+		return (-ganho * delta) + (ganho * (-valorHistorico));
 	}
 
 }

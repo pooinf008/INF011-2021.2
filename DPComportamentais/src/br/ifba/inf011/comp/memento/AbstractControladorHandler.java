@@ -1,7 +1,6 @@
 package br.ifba.inf011.comp.memento;
 
 
-//HANDLER em COR
 public abstract class AbstractControladorHandler implements ControladorHandler{
 	
 	protected ControladorHandler proximo;

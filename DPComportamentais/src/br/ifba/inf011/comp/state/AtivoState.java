@@ -2,7 +2,7 @@ package br.ifba.inf011.comp.state;
 
 import java.util.List;
 
-
+//CONCRETESTATE em State
 public class AtivoState extends AbstractControladorState implements ControladorState {
 
 	@Override

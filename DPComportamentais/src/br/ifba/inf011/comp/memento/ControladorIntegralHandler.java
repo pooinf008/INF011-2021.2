@@ -2,7 +2,6 @@ package br.ifba.inf011.comp.memento;
 
 import java.util.List;
 
-//CONCRETEHANDLER em COR
 public class ControladorIntegralHandler extends AbstractControladorHandler{
 
 	public ControladorIntegralHandler() {

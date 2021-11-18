@@ -4,6 +4,7 @@ import java.util.List;
 
 import br.ifba.inf011.comp.state.Controlador.Snapshot;
 
+//STATE em State
 public class AbstractControladorState implements ControladorState{
 
 	@Override

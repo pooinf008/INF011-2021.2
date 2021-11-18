@@ -4,6 +4,7 @@ import java.util.List;
 
 import br.ifba.inf011.comp.state.Controlador.Snapshot;
 
+//STATE em State
 public interface ControladorState {
 	public double executar(double valor, List<Double> historico, double setpoint, double ganho, ControladorHandler handler);
 	public void restore(Snapshot snapshot);

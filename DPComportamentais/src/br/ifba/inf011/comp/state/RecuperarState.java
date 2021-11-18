@@ -2,6 +2,7 @@ package br.ifba.inf011.comp.state;
 
 import br.ifba.inf011.comp.state.Controlador.Snapshot;
 
+//CONCRETESTATE em State
 public class RecuperarState extends AbstractControladorState implements ControladorState {
 
 	@Override

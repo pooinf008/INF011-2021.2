@@ -5,7 +5,7 @@ public class Aplicacao {
 	public void run() throws InterruptedException {
 		
 		Ambiente ambiente = new Ambiente();
-		Controlador controlador = new Controlador(25, 0.75);
+		Controlador controlador = new Controlador(25, 1.25);
 		
 		int i = 0;
 		
@@ -17,7 +17,11 @@ public class Aplicacao {
 			}	
 			double temperatura = ambiente.getTemperatura();
 			System.out.println("Temperatura [" + i + "]:" + temperatura);
-			double atuar = controlador.executar(TipoControle.PROPORCIONAL_INTEGRAL, temperatura); 
+			double atuar = 0;
+			if(i % 2 == 0)
+				atuar = controlador.executar(TipoControle.PROPORCIONAL, temperatura);
+			else
+				atuar = controlador.executar(TipoControle.INTEGRAL, temperatura);
 			ambiente.atuar(atuar);
 			Thread.sleep(250);
 		}		

@@ -3,6 +3,7 @@ package br.ifba.inf011.comp.cor;
 import java.util.LinkedList;
 import java.util.List;
 
+//CLIENT em um Chain of Responsibility
 public class Controlador {
 	
 	protected static int HISTORICO_VALUES = 5;

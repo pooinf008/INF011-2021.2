@@ -3,7 +3,7 @@ package br.ifba.inf011.comp.memento;
 import java.util.LinkedList;
 import java.util.List;
 
-//ORIGINATOR em um MEMENTO
+//ORIGINATOR em um Memento
 public class Controlador {
 	
 	public class Snapshot {
@@ -15,7 +15,7 @@ public class Controlador {
 		private double ganho;
 		private double qqcoisa;
 		
-		//MEMENTO em um MEMENTO
+		//MEMENTO em um Memento
 		private Snapshot(Controlador controlador, 
 						 List<Double> historico,
 						 double setpoint,
