@@ -40,8 +40,6 @@ public class Aplicacao {
 		
 		GerentePrototipos gerente = new GerentePrototipos(); 
 		
-		GerentePrototipos gerente2 = new GerentePrototipos();		
-		
 		ControladorIF controlador = gerente.get(TipoSensor.BASICO, 
 												TipoAtuador.RESFRIADOR);
 		Ambiente ambiente = new Ambiente();

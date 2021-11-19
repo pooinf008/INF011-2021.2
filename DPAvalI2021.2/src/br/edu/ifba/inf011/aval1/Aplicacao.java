@@ -1,5 +1,7 @@
 package br.edu.ifba.inf011.aval1;
 
+import java.lang.reflect.InvocationTargetException;
+
 import br.edu.ifba.inf011.aval1.builder.CursoBuilder;
 import br.edu.ifba.inf011.aval1.builder.EmentaBuilder;
 import br.edu.ifba.inf011.aval1.fm.ProdutoFactory;
@@ -8,7 +10,7 @@ import br.edu.ifba.inf011.aval1.prototype.CatalogoCursos;
 
 public class Aplicacao {
 	
-	private void rodarQ1() throws InstantiationException, IllegalAccessException, ClassNotFoundException {
+	private void rodarQ1() throws InstantiationException, IllegalAccessException, ClassNotFoundException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
 		
 		Produto prod01 = ProdutoFactory.novoProduto(TipoProduto.LIVRO,
 												   "BOOK_CRIA01", 
@@ -26,7 +28,7 @@ public class Aplicacao {
 		System.out.println(prod03);
 	}
 	
-	private void rodarQ2() throws InstantiationException, IllegalAccessException, ClassNotFoundException {
+	private void rodarQ2() throws InstantiationException, IllegalAccessException, ClassNotFoundException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
 		
 		Produto prod01 = ProdutoFactory.novoProduto(TipoProduto.LIVRO,
 												   "BOOK_CRIA01", 
@@ -62,7 +64,7 @@ public class Aplicacao {
 		
 	}
 	
-	private void rodarQ3() throws InstantiationException, IllegalAccessException, ClassNotFoundException {
+	private void rodarQ3() throws InstantiationException, IllegalAccessException, ClassNotFoundException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
 		
 		Produto prod01 = ProdutoFactory.novoProduto(TipoProduto.LIVRO,
 												   "BOOK_CRIA01", 
@@ -96,7 +98,7 @@ public class Aplicacao {
 	}	
 	
 	
-	public static void main(String[] args) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
+	public static void main(String[] args) throws InstantiationException, IllegalAccessException, ClassNotFoundException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
 		Aplicacao app = new Aplicacao();
 		app.rodarQ1();
 		app.rodarQ2();

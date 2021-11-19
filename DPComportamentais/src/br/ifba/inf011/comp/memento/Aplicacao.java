@@ -42,8 +42,6 @@ public class Aplicacao {
 		Ambiente ambiente = new Ambiente();
 		Controlador controlador = new Controlador(25, 0.75);
 		
-		Controlador.Snapshot snapshot = controlador.getSnapshot();
-		
 		int i = 0;
 		
 		while(true) {

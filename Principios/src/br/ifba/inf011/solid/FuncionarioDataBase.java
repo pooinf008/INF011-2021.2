@@ -8,11 +8,9 @@ import java.util.List;
 import java.util.Map;
 
 import br.ifba.inf011.solid.model.Funcionario;
-import br.ifba.inf011.solid.model.FuncionarioIF;
 import br.ifba.inf011.solid.model.FuncionarioPJ;
 import br.ifba.inf011.solid.model.Promovivel;
 import br.ifba.inf011.solid.model.Reajustavel;
-import br.ifba.inf011.solid.model.Terceirizado;
 
 public class FuncionarioDataBase {
 	

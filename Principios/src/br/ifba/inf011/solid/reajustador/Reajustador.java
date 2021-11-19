@@ -5,11 +5,8 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import br.ifba.inf011.solid.exception.ValidacaoException;
-import br.ifba.inf011.solid.model.Funcionario;
-import br.ifba.inf011.solid.model.FuncionarioIF;
 import br.ifba.inf011.solid.model.Reajustavel;
 
 public class Reajustador {

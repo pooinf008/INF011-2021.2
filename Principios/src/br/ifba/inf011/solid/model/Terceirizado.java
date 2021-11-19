@@ -3,8 +3,6 @@ package br.ifba.inf011.solid.model;
 import java.math.BigDecimal;
 import java.util.Date;
 
-import resposta.ValidacaoException;
-
 public class Terceirizado{
 
 	private String nomeEmpresa;

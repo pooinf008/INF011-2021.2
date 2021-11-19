@@ -1,10 +1,7 @@
 package br.ifba.inf011.solid.model;
 
 import java.math.BigDecimal;
-import java.text.ParseException;
 import java.util.Date;
-
-import br.ifba.inf011.solid.exception.ValidacaoException;
 
 public class FuncionarioPJ implements Reajustavel{
 	

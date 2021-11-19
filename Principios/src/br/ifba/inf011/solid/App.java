@@ -3,17 +3,12 @@ package br.ifba.inf011.solid;
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 import br.ifba.inf011.solid.exception.ValidacaoException;
 import br.ifba.inf011.solid.model.Funcionario;
-import br.ifba.inf011.solid.model.FuncionarioIF;
 import br.ifba.inf011.solid.model.Promovivel;
 import br.ifba.inf011.solid.model.Reajustavel;
-import br.ifba.inf011.solid.model.Terceirizado;
 import br.ifba.inf011.solid.promovedor.Promovedor;
 import br.ifba.inf011.solid.reajustador.Reajustador;
 import br.ifba.inf011.solid.reajustador.RegraPercentual;
