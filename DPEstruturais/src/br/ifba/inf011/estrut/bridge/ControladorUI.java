@@ -1,4 +1,4 @@
-package br.ifba.inf011.estrut.adapter;
+package br.ifba.inf011.estrut.bridge;
 
 import javax.swing.*;
 import java.awt.*;
