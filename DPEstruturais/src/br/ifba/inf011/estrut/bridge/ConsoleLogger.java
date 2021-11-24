@@ -1,7 +1,7 @@
 package br.ifba.inf011.estrut.bridge;
 
-//CONCRETEIMPLEMENTO em um Bridge 
-public class ConsoleLogger implements SimpleLoggerImplementor{
+//CONCRETEIMPLEMENTOR em um Bridge 
+public class ConsoleLogger implements LoggerImplementor{
 
 	@Override
 	public void doLog(String s) {

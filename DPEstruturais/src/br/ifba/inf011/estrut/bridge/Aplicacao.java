@@ -1,21 +1,23 @@
 package br.ifba.inf011.estrut.bridge;
 
+//CLIENT em um Bridge
 public class Aplicacao {
 	
 	private static final boolean DIGEST_LOG = true;
-	private static final boolean IMPL_LOG = false;
+	private static final boolean FILE_LOG = false;
 	
 	public void run() throws InterruptedException {
 		
 		
 		Ambiente ambiente = new Ambiente();
 		Controlador controlador = new Controlador(25, 0.75);
-		SimpleLoggerImplementor logger;
+		LoggerImplementor logger;
 		
-		if(Aplicacao.IMPL_LOG)
-			logger = new ConsoleLogger();
-		else
+		if(Aplicacao.FILE_LOG)
 			logger = new FileLogger("./BRIDGE_LOG.txt");
+		else
+			logger = new ConsoleLogger();
+			
 		
 		
 		if(Aplicacao.DIGEST_LOG)

@@ -7,9 +7,9 @@ import java.util.Date;
 //ABSTRACTION em um Bridge
 public class SimpleLogger {
 	
-	protected SimpleLoggerImplementor logger;
+	protected LoggerImplementor logger;
 	
-	public SimpleLogger(SimpleLoggerImplementor logger) {
+	public SimpleLogger(LoggerImplementor logger) {
 		this.logger = logger;
 	}
 	

@@ -13,7 +13,7 @@ public class DigestLogger extends SimpleLogger{
 	private List<String> messages;
 	private int qtdeMessages; 
 	
-	public DigestLogger(SimpleLoggerImplementor logger) {
+	public DigestLogger(LoggerImplementor logger) {
 		super(logger);
 		this.messages = new LinkedList<String>();
 		this.qtdeMessages = 0;

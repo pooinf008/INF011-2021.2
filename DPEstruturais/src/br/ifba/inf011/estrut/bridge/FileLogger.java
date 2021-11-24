@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 //CONCRETEIMPLEMENTOR em um Bridge 
-public class FileLogger implements SimpleLoggerImplementor{
+public class FileLogger implements LoggerImplementor{
 
 	private String fileName;
 
