@@ -30,9 +30,9 @@ public class Linha {
 	public String getForma() {
 		if(this.getAcima(this.setpoint, this.valor) && this.getMaior5(this.setpoint, this.valor))
 			
-			return new Character('\^^');
+			return "^^";
 		else
-			return new Character('V');
+			return "V";
 	}
 	
 	
