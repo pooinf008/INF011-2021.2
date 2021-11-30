@@ -5,7 +5,7 @@ public class Linha {
 	private String hora;
 	private DeltaTemperatura categoria;
 
-	private Linha(String hora, double setpoint, double valor) {
+	public Linha(String hora, double setpoint, double valor) {
 		this.hora = hora;
 		this.categoria = this.getDeltaTemperatura(setpoint, valor);
 	}

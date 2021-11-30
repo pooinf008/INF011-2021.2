@@ -1,12 +1,19 @@
 package br.ifba.inf011.estrut.flyweight;
 
+import java.util.Date;
+
+import br.ifba.inf011.estrut.flyweight.report.Relatorio;
+
 //CLIENTE em um Adapter 
 public class Aplicacao {
 	
 	public void run() throws InterruptedException {
 		
+		
+		double setpoint = 25;
 		Ambiente ambiente = new Ambiente();
-		Controlador controlador = new Controlador(25, 0.75);
+		Controlador controlador = new Controlador(setpoint, 0.75);
+		Relatorio relatorio = new Relatorio(setpoint);
 		
 		controlador.attachStateChangedObserver(new StateChangedLog());
 		
@@ -26,6 +33,7 @@ public class Aplicacao {
 				controlador.ativar();
 			}	
 			double temperatura = ambiente.getTemperatura();
+			relatorio.addRegistro(new Date(), temperatura);
 			System.out.println("Temperatura Atual: " + temperatura);
 			double atuar = controlador.executar(temperatura); 
 			ambiente.atuar(atuar);
