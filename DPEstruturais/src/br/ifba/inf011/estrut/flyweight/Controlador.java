@@ -41,8 +41,8 @@ public class Controlador {
 	private double setpoint;
 	private double ganho;
 	private ControladorHandler handler;
-	
 	private ControladorState state;
+	
 	
 	public Controlador(double setpoint, double ganho){
 		this.historico = new LinkedList<Double>();
@@ -56,6 +56,7 @@ public class Controlador {
 	}
 
 	public double executar(double valor){
+		
 		return this.state.executar(valor, this.historico, 
 								   this.setpoint, this.ganho, 
 								   this.handler);
