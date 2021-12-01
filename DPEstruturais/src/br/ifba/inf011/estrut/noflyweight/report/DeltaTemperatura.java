@@ -1,13 +1,12 @@
-package br.ifba.inf011.estrut.flyweight.report;
+package br.ifba.inf011.estrut.noflyweight.report;
 
-//Flyweight em Flyweight
-public class DeltaTemperatura implements DeltaTemperaturaFlyweight{
-	
+public class DeltaTemperatura {
+
 	public static int numeroObjetos = 0;
 	
 	private String simbolo;
 	
-	private DeltaTemperatura(String simbolo) {
+	public DeltaTemperatura(String simbolo) {
 		this.simbolo = simbolo;
 	}
 	
@@ -15,10 +14,6 @@ public class DeltaTemperatura implements DeltaTemperaturaFlyweight{
 		return this.simbolo;
 	}
 	
-	@Override
-	public String conteudo(String hora) {
-		return "[" + hora + "] " + this.getSimbolo();
-	}		
 	
 	private static boolean getAcima(double setpoint, double valor) {
 		return (valor > setpoint);
@@ -52,9 +47,7 @@ public class DeltaTemperatura implements DeltaTemperaturaFlyweight{
 			return new String("v1");			
 		else
 			return new String("<>");
-	}
-
-
+	}	
 	 
 	
 }

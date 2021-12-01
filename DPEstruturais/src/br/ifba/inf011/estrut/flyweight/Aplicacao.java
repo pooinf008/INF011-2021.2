@@ -2,7 +2,7 @@ package br.ifba.inf011.estrut.flyweight;
 
 import java.util.Date;
 
-import br.ifba.inf011.estrut.flyweight.report.Relatorio;
+import br.ifba.inf011.estrut.noflyweight.report.Relatorio;
 
 //CLIENTE em um Adapter 
 public class Aplicacao {
@@ -15,38 +15,39 @@ public class Aplicacao {
 		Controlador controlador = new Controlador(setpoint, 0.75);
 		Relatorio relatorio = new Relatorio(setpoint);
 		
-		controlador.attachStateChangedObserver(new StateChangedLog());
+//		controlador.attachStateChangedObserver(new StateChangedLog());
 		
 		Controlador.Snapshot snapshot = controlador.getSnapshot();
 		
-		int i = 0;
+		long i = 0;
 		
-		while(true) {
+		while(i < 1000) {
 			i++;
 			
 			if(i == 10)
 				snapshot = controlador.getSnapshot();
 			if(i % 10 == 0) {
-				System.out.println(controlador.getRelatorio());				
-				System.out.println("\nPertubação...");
+//				System.out.println(controlador.getRelatorio());				
+//				System.out.println("\nPertubação...");
 				ambiente.perturbar();
 				controlador.ativar();
 			}	
 			double temperatura = ambiente.getTemperatura();
 			relatorio.addRegistro(new Date(), temperatura);
-			System.out.println("Temperatura Atual: " + temperatura);
+//			System.out.println("Temperatura Atual: " + temperatura);
 			double atuar = controlador.executar(temperatura); 
 			ambiente.atuar(atuar);
 			Thread.sleep(10);
 			if(i % 40 == 0) {
 				controlador.restaurar();
-				System.out.println("\nFalha...");
-				System.out.println("\nRestaurando pro último estado válido");
+//				System.out.println("\nFalha...");
+//				System.out.println("\nRestaurando pro último estado válido");
 				controlador.restore(snapshot);
-				System.out.println(controlador.getRelatorio());
+//				System.out.println(controlador.getRelatorio());
 				controlador.ativar();
 			}
-		}		
+		}
+		System.out.println(relatorio.conteudo());
 	}
 	
 	
