@@ -14,7 +14,6 @@ public class ClassificaEstadoServer{
 		while(true) {
 			Socket s = server.accept();
 			new Thread((new ProcessaRequisicao(s))).start();
-			
 		}
 	}
 	
