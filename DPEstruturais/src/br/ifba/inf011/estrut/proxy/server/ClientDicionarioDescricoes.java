@@ -6,37 +6,35 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
-import java.util.StringTokenizer;
 
-import br.ifba.inf011.estrut.noflyweight.report.DeltaTemperatura;
-
-public class ClientServicoSimbolos implements GeraSimboloIF{
+public class ClientDicionarioDescricoes implements DicionarioDescricoesIF{
 	
 	private static final int PORTA = 1234;
 	private static final String HOST = "localhost";
 	
-	public String gerarSimbolo(double setpoint, double valor) {
+	public String buscarDescricao(String simbolo) {
+		String conteudo;
 		try {
-			return this.run(setpoint, valor);
+			conteudo = this.run(simbolo);
 		} catch (IOException e) {
-			return null;
+			conteudo = "INDEFINIDO";
 		}
+		return conteudo;
 	};	
 	
 	private String processaMessagem(String mensagem) {
-		StringTokenizer tokenizer = new StringTokenizer(mensagem, " ");
-		String acao = tokenizer.nextToken();
-		if(!acao.equals("SYMBOL"))
-			return null;
-		String simbolo = tokenizer.nextToken();
+		String acao = mensagem.substring(0, mensagem.indexOf(' ')).trim();
+		if(!acao.equals("DESC"))
+			return "INDEFINIDO";
+		String simbolo = mensagem.substring(mensagem.indexOf(' '), mensagem.length()).trim();
 		return simbolo;
 	}	
 	
-	public String run(double setpoint, double valor) throws IOException {
+	public String run(String simbolo) throws IOException {
 		String mensagem;
-		Socket s = new Socket(ClientServicoSimbolos.HOST, ClientServicoSimbolos.PORTA);
+		Socket s = new Socket(ClientDicionarioDescricoes.HOST, ClientDicionarioDescricoes.PORTA);
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(s.getOutputStream()));
-		bw.append("WHOIS " + Double.toString(setpoint) + " " + Double.toString(valor));
+		bw.append("WHATIS " + simbolo);
 		bw.newLine();
 		bw.flush();
 		BufferedReader br = new BufferedReader(new InputStreamReader(s.getInputStream()));
@@ -48,7 +46,8 @@ public class ClientServicoSimbolos implements GeraSimboloIF{
 	}
 	
 	public static void main(String[] args) throws IOException {
-		System.out.println((new ClientServicoSimbolos()).gerarSimbolo(10, 10.1));
+		System.out.println((new ClientDicionarioDescricoes()).buscarDescricao("v1"));
 	}
+
 
 }

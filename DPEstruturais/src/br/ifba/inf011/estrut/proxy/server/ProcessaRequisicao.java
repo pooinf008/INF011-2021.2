@@ -39,43 +39,25 @@ public class ProcessaRequisicao implements Runnable{
 	}
 	
 	private String processaMessagem(String mensagem) {
-		StringTokenizer tokenizer = new StringTokenizer(mensagem, " ");
-		String acao = tokenizer.nextToken();
-		if(!acao.equals("WHOIS"))
+		String acao = mensagem.substring(0, mensagem.indexOf(' ')).trim();
+		if(!acao.equals("WHATIS"))
 			return null;
-		double setpoint = Double.parseDouble(tokenizer.nextToken());
-		double valor = Double.parseDouble(tokenizer.nextToken());
-		return "SYMBOL " + this.gerarSimbolo(setpoint, valor);
+		String descricao = mensagem.substring(mensagem.indexOf(' '), mensagem.length()).trim();
+		return "DESC " + this.gerarDescricao(descricao);
 	}
 	
-	private String gerarSimbolo(double setpoint, double valor) {
-		if(this.getAcima(setpoint, valor) && this.getMaior5(setpoint, valor))
-			return new String("^5");
-		else if(this.getAcima(setpoint, valor) && this.getMaior1(setpoint, valor))
-			return new String("^1");
-		else if(this.getAbaixo(setpoint, valor) && this.getMaior5(setpoint, valor))
-			return new String("v5");
-		else if(this.getAbaixo(setpoint, valor) && this.getMaior1(setpoint, valor))
-			return new String("v1");			
+	private String gerarDescricao(String descricao) {
+		if(descricao.contentEquals("^5"))
+			return new String("Temperatura Ambiente mais que 5% Acima do SetPoint");
+		else if(descricao.contentEquals("^1"))
+			return new String("Temperatura Ambiente mais que 1% Acima do SetPoint");
+		else if(descricao.contentEquals("v5"))
+			return new String("Temperatura Ambiente menos que 5% Abaixo do SetPoint");
+		else if(descricao.contentEquals("v1"))
+			return new String("Temperatura Ambiente menos que 1% Abaixo do SetPoint");			
 		else
-			return new String("<>");
+			return new String("Temperatura Ambiente dentro dos padrões estabelecidos");
 	}	
-	
-	private boolean getAcima(double setpoint, double valor) {
-		return (valor > setpoint);
-	}
-	
-	private boolean getAbaixo(double setpoint, double valor) {
-		return (valor < setpoint);
-	}	
-	
-	private boolean getMaior1(double setpoint, double valor) {
-		return Math.abs(setpoint - valor) > 0.01; 
-	}
-	
-	private  boolean getMaior5(double setpoint, double valor) {
-		return Math.abs(setpoint - valor) > 0.05; 
-	}		
 	
 	
 }
