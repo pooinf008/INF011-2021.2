@@ -1,4 +1,4 @@
-package br.ifba.inf011.estrut.decorator;
+package br.ifba.inf011.estrut.composite;
 
 public class InativoState extends AbstractControladorState implements ControladorState {
 

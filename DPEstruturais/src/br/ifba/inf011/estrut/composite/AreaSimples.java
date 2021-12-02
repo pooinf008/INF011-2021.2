@@ -1,12 +1,12 @@
-package br.ifba.inf011.estrut.decorator;
+package br.ifba.inf011.estrut.composite;
 
 import java.util.Random;
 
-public class Ambiente{
+public class AreaSimples implements Area{
 	
 	public double ultimaMedicao;
 	
-	public Ambiente() {
+	public AreaSimples() {
 		this.ultimaMedicao = 35;
 	}
 	
