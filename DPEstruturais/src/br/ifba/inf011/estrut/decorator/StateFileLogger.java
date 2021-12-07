@@ -4,7 +4,6 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
-//ADAPTEE em Adapter
 public class StateFileLogger {
 	
 	private String fileName;

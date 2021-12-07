@@ -2,7 +2,6 @@ package br.ifba.inf011.estrut.decorator;
 
 import br.ifba.inf011.estrut.decorator.report.Relatorio;
 
-//CLIENTE em um Adapter 
 public class Aplicacao {
 	
 	public void run() throws InterruptedException {
@@ -12,38 +11,28 @@ public class Aplicacao {
 		Controlador controlador = new Controlador(setpoint, 0.75);
 		Relatorio relatorio = new Relatorio(setpoint);
 		
-		
-//		controlador.attachStateChangedObserver(new StateChangedLog());
-//		controlador.attachStateChangedObserver(new StateFileLoggerAdapter("./StateChanged.txt"));
-		
 		Controlador.Snapshot snapshot = controlador.getSnapshot();
 		
 		long i = 0;
 		
-		while(i < 1000) {
+		while(i < 10) {
 			i++;
 			
 			if(i == 10)
 				snapshot = controlador.getSnapshot();
 			if(i % 10 == 0) {
-//				System.out.println(controlador.getRelatorio());				
-//				System.out.println("\nPertubação...");
 				area.perturbar();
 				controlador.ativar();
 			}	
 			double temperatura = area.getTemperatura();
 			relatorio.addRegistro(temperatura);
 
-//			System.out.println("Temperatura Atual: " + temperatura);
 			double atuar = controlador.executar(temperatura); 
 			area.atuar(atuar);
 			Thread.sleep(10);
 			if(i % 40 == 0) {
 				controlador.restaurar();
-//				System.out.println("\nFalha...");
-//				System.out.println("\nRestaurando pro último estado válido");
 				controlador.restore(snapshot);
-//				System.out.println(controlador.getRelatorio());
 				controlador.ativar();
 			}
 		}

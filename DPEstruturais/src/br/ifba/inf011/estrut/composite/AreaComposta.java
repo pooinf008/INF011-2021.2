@@ -3,6 +3,7 @@ package br.ifba.inf011.estrut.composite;
 import java.util.HashSet;
 import java.util.Set;
 
+//COMPOSITE em um Composite
 public class AreaComposta implements Area{
 	
 	private Set<Area> areas;

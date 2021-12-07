@@ -2,6 +2,7 @@ package br.ifba.inf011.estrut.composite;
 
 import java.util.Random;
 
+//LEAF em um Composite
 public class AreaSimples implements Area{
 	
 	public double ultimaMedicao;

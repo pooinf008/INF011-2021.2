@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-//ADAPTER em um Adapter
 public class StateFileLoggerAdapter implements StateChangedObserver{
 
 	

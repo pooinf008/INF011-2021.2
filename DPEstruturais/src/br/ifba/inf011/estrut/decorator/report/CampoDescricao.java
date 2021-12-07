@@ -1,6 +1,6 @@
 package br.ifba.inf011.estrut.decorator.report;
 
-
+//CONCRETEDECORATOR em um Decorator
 public class CampoDescricao extends LinhaDecorator{
 	
 	public CampoDescricao(LinhaIF decorado) {

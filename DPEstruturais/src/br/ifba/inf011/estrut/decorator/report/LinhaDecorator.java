@@ -1,6 +1,6 @@
 package br.ifba.inf011.estrut.decorator.report;
 
-public class LinhaDecorator implements LinhaIF{
+public abstract class LinhaDecorator implements LinhaIF{
 	
 	protected LinhaIF decorado;
 	

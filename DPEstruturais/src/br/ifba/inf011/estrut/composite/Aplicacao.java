@@ -1,6 +1,6 @@
 package br.ifba.inf011.estrut.composite;
 
-//CLIENTE em um Adapter 
+//CLIENT em um Composite
 public class Aplicacao {
 	
 	public void run() throws InterruptedException {

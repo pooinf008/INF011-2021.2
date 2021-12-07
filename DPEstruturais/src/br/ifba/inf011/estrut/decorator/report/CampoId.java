@@ -1,5 +1,6 @@
 package br.ifba.inf011.estrut.decorator.report;
 
+//CONCRETEDECORATOR em um Decorator
 public class CampoId extends LinhaDecorator{
 	
 	private static int numero = 0;

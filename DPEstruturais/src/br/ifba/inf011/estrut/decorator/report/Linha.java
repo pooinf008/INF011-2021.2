@@ -4,6 +4,7 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
 
+//CONCRETECOMPONENT em um Decorator
 public class Linha implements LinhaIF{
 	
 	public Linha() {
