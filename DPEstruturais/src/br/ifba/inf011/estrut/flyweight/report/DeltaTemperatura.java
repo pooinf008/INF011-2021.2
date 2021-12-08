@@ -1,6 +1,6 @@
 package br.ifba.inf011.estrut.flyweight.report;
 
-//Flyweight em Flyweight
+//CONCRETEFLYWEIGHT em Flyweight
 public class DeltaTemperatura implements DeltaTemperaturaFlyweight{
 	
 	public static int numeroObjetos = 0;

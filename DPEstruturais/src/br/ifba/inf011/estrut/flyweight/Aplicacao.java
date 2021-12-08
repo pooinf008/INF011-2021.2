@@ -2,7 +2,7 @@ package br.ifba.inf011.estrut.flyweight;
 
 import java.util.Date;
 
-import br.ifba.inf011.estrut.noflyweight.report.Relatorio;
+import br.ifba.inf011.estrut.flyweight.report.Relatorio;
 
 //CLIENTE em um Adapter 
 public class Aplicacao {
@@ -21,7 +21,7 @@ public class Aplicacao {
 		
 		long i = 0;
 		
-		while(i < 1000) {
+		while(i < 10000) {
 			i++;
 			
 			if(i == 10)

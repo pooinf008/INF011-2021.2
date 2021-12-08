@@ -3,7 +3,7 @@ package br.ifba.inf011.estrut.flyweight.report;
 import java.util.HashMap;
 import java.util.Map;
 
-//FlyweightFactory em Flyweight
+//FLYWEIGHTFACTORY em Flyweight
 public class DeltaTemperaturaFactory {
 	
 	private Map<String, DeltaTemperatura> deltas;

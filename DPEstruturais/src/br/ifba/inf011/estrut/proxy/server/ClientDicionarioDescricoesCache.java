@@ -17,6 +17,7 @@ public class ClientDicionarioDescricoesCache implements DicionarioDescricoesIF{
 
 	@Override
 	public String buscarDescricao(String simbolo) {
+		
 		String descricao = this.descricoes.get(simbolo);
 		if(descricao == null) {
 			descricao = this.servico.buscarDescricao(simbolo);

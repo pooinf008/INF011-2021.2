@@ -26,8 +26,8 @@ public class ClientDicionarioDescricoes implements DicionarioDescricoesIF{
 		String acao = mensagem.substring(0, mensagem.indexOf(' ')).trim();
 		if(!acao.equals("DESC"))
 			return "INDEFINIDO";
-		String simbolo = mensagem.substring(mensagem.indexOf(' '), mensagem.length()).trim();
-		return simbolo;
+		String descricao = mensagem.substring(mensagem.indexOf(' '), mensagem.length()).trim();
+		return descricao;
 	}	
 	
 	public String run(String simbolo) throws IOException {
@@ -46,7 +46,7 @@ public class ClientDicionarioDescricoes implements DicionarioDescricoesIF{
 	}
 	
 	public static void main(String[] args) throws IOException {
-		System.out.println((new ClientDicionarioDescricoes()).buscarDescricao("v1"));
+		System.out.println((new ClientDicionarioDescricoes()).buscarDescricao("^5"));
 	}
 
 

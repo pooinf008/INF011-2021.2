@@ -1,6 +1,6 @@
 package br.ifba.inf011.estrut.flyweight.report;
 
-//Contexto em Flyweight
+//CLIENT em Flyweight
 public class Linha{
 	
 	private DeltaTemperatura categoria;
