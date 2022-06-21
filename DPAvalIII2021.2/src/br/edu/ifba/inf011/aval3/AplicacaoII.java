@@ -1,14 +1,14 @@
-package br.edu.ifba.inf011.aval2;
+package br.edu.ifba.inf011.aval3;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Stack;
 
-import br.edu.ifba.inf011.aval2.Curso.Situacao;
-import br.edu.ifba.inf011.aval2.builder.CursoBuilder;
-import br.edu.ifba.inf011.aval2.fm.ProdutoFactory;
-import br.edu.ifba.inf011.aval2.fm.TipoProduto;
-import br.edu.ifba.inf011.aval2.observer.ReportCheckpoint;
-import br.edu.ifba.inf011.aval2.state.OperacaoInvalida;
+import br.edu.ifba.inf011.aval3.Curso.Situacao;
+import br.edu.ifba.inf011.aval3.builder.CursoBuilder;
+import br.edu.ifba.inf011.aval3.fm.ProdutoFactory;
+import br.edu.ifba.inf011.aval3.fm.TipoProduto;
+import br.edu.ifba.inf011.aval3.observer.ReportCheckpoint;
+import br.edu.ifba.inf011.aval3.state.OperacaoInvalida;
 
 public class AplicacaoII {
 	
@@ -50,18 +50,16 @@ public class AplicacaoII {
 		
 		Stack<Situacao> checks = new Stack<Situacao>();
 		
-		System.out.println("Questão I");
-		
 		Curso curso = this.makeCurso();
 		
 		checks.push(curso.checkpoint());
 		System.out.println(curso);
 		
-		curso.avancar("DISC_COMP01", 0.25);
+		curso.avancar("DISC_COMP01", 5);
 		checks.push(curso.checkpoint());
 		System.out.println(curso);
 
-		curso.avancar("DISC_COMP02", 0.20);
+		curso.avancar("DISC_COMP02", 10);
 		checks.push(curso.checkpoint());
 		System.out.println(curso);
 		
@@ -87,10 +85,10 @@ public class AplicacaoII {
 		
 		checks.push(curso.checkpoint());
 		
-		curso.avancar("DISC_COMP01", 0.25);
+		curso.avancar("DISC_COMP01", 5);
 		checks.push(curso.checkpoint());
 
-		curso.avancar("DISC_COMP02", 0.20);
+		curso.avancar("DISC_COMP02", 10);
 		checks.push(curso.checkpoint());
 		
 		curso.restore(checks.pop());
@@ -112,13 +110,13 @@ public class AplicacaoII {
 		
 		checks.push(curso.checkpoint());
 		
-		curso.avancar("DISC_COMP01", 0.25);
+		curso.avancar("DISC_COMP01", 5);
 		checks.push(curso.checkpoint());
 		
 		curso.suspender();
 		
 		try {
-			curso.avancar("DISC_COMP02", 0.20);
+			curso.avancar("DISC_COMP02", 10);
 			checks.push(curso.checkpoint());
 		}catch(OperacaoInvalida o) {
 			System.err.println(o);
@@ -138,8 +136,8 @@ public class AplicacaoII {
 			System.err.println(o);
 		}
 		
-		curso.avancar("DISC_COMP01", 0.75);
-		curso.avancar("DISC_COMP02", 1);
+		curso.avancar("DISC_COMP01", 10);
+		curso.avancar("DISC_COMP02", 30);
 		curso.concluir();
 		
 
@@ -157,8 +155,11 @@ public class AplicacaoII {
 	
 	public static void main(String[] args) throws InstantiationException, IllegalAccessException, ClassNotFoundException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException, OperacaoInvalida {
 		AplicacaoII app = new AplicacaoII();
+		System.out.println("QUESTÃO I");
 		app.rodarQ1();
+		System.out.println("QUESTÃO II");
 		app.rodarQ2();
+		System.out.println("QUESTÃO III");
 		app.rodarQ3();
 	}
 
